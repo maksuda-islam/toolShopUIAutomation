@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test';
+
 export class ProductPage {
     /**
     * @param {import('@playwright/test').Page} page
@@ -10,6 +12,6 @@ export class ProductPage {
 
     async addProductToCartAndValidate() {
         await this.btnAddToCart.click();
-        await expect(page.getByRole('alert', { name: 'Product added to shopping' })).toBeVisible();
+        await expect(this.page.getByRole('alert', { name: 'Product added to shopping' })).toBeVisible();
     }
 }
