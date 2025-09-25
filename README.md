@@ -38,3 +38,8 @@
 **Commands to Run the specs:**
 1. ```npm run contactFormSubValidation```
 2. ```npm run cartUpdateAddition```
+
+
+**Reasoning**
+Went with the POM design pattern
+Tried to do Data Driver Testing, for simplicity used json as data input files

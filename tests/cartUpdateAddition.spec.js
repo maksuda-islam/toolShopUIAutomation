@@ -16,21 +16,28 @@ test.describe("Validate User form", () => {
         await page.goto('/');
     });
 
-    test.only('Test Case 1 : Validate Requird Field Error Msg', async ({ page }) => {
-        await page.pause();
-
+    test('Test Case 1 :Task 02', async ({ page }) => {
         await homePage.selectContainerCardByLabel('Combination Pliers')
         await productPage.addProductToCartAndValidate();
 
+        //wanted to do this in the checkoutPgae.js but lost track of time.
         await page.locator('[data-test="nav-cart"]').click();
-
-        await page.locator('[data-test="product-quantity"]').click();
         await page.locator('[data-test="product-quantity"]').fill('3');
         await page.locator('[data-test="product-quantity"]').press('Enter');
-        await page.locator('[data-test="product-price"]').click();
-        await page.locator('[data-test="line-price"]').click();
-        await page.getByRole('cell', { name: 'Total' }).click();
-        await page.locator('[data-test="cart-total"]').click();
+
+        let perUnitPriceText = await page.locator('[data-test="product-price"]').textContent();
+        let perUnitPrice = parseFloat(perUnitPriceText.replace('$', ''));
+        const expectedTotalPrice = perUnitPrice * 3;
+        let currentTotalPriceText = await page.locator('[data-test="line-price"]').textContent();
+        let currentTotalPrice = parseFloat(currentTotalPriceText.replace('$', ''));
+
+        await expect(currentTotalPrice).toBe(expectedTotalPrice);
+
+        let cartTotalText = await page.locator('[data-test="cart-total"]').textContent();
+        let cartTotal = parseFloat(cartTotalText.replace('$', ''));
+        
+        await expect(cartTotal).toBe(expectedTotalPrice);
+
     });
 
 });

@@ -5,6 +5,7 @@ export class CheckoutPage {
 
     constructor(page) {
         this.page = page;
+        this.btnCheckoutCart = page.locator('[data-test="nav-cart"]')
     }
 
 

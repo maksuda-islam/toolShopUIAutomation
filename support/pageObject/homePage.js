@@ -8,6 +8,6 @@ export class HomePage {
     }
 
     async selectContainerCardByLabel(labelText) {
-        await page.getByText(labelText).click();
+        await this.page.getByText(labelText).click();
     }
 }
