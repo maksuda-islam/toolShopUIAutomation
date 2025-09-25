@@ -1,0 +1,8 @@
+{
+    "firstName": "FirstName",
+    "lastName": "LastName",
+    "email": "email@gmail.com",
+    "subject": "payments",
+    "message": "This is an automated message messagemessagemessage",
+    "successMessage": "Thanks for your message! We will contact you shortly."
+}

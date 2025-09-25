@@ -1,0 +1,21 @@
+{
+  "name": "toolshop-ui-automation",
+  "version": "1.0.0",
+  "description": "WSD-QA-Engineer-Interview-Task",
+  "keywords": [],
+  "author": "Maksuda Islam Lima",
+  "dependencies": {
+    "monocart-reporter": "^2.9.23",
+    "playwright": "^1.55.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.5.2",
+    "eslint-plugin-playwright": "^2.2.2"
+  },
+  "scripts": {
+    "contactFormSubValidation": "npx playwright test --headed --project=chromium contactFormSubValidation.spec.js",
+    "cartUpdateAddition": "npx playwright test --headed --project=chromium cartUpdateAddition.spec.js"
+  }
+}
